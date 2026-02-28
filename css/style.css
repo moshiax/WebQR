@@ -157,3 +157,16 @@ button.primary {
 #qrModal button:hover {
 	background: #08c;
 }
+
+@media (orientation: portrait) {
+	#file-dropzone {
+		transform: scale(2.5);
+		transform-origin: center center;
+	}
+
+	button.primary {
+		transform: scale(2.5);
+		transform-origin: center center;
+		margin: 12rem auto;
+	}
+}
