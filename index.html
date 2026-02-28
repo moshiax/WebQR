@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebQR</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+<meta name="theme-color" content="#121212">
+</head>
+<body>
+
+<div id="app">
+	<div id="file-dropzone">
+		<p>Click here to select image for QR scan</p>
+		<input type="file" id="file-input" accept="image/*" style="display:none;">
+	</div>
+	<button class="primary" id="open-camera-btn">Scan with Camera</button>
+
+	<div id="player-container">
+		<div id="video-wrapper">
+			<video id="video" playsinline autoplay></video>
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+</div>
+
+<div id="notification" class="notification"><p></p></div>
+
+<div id="qrModal">
+	<p id="qrText"></p>
+	<button id="copyQR">Copy</button>
+</div>
+
+<script src="js/jsQR.js"></script>
+<script src="js/main.js"></script>
+<script>
+if('serviceWorker' in navigator){
+	navigator.serviceWorker.register('service-worker.js')
+		.then(() => console.log('Service Worker registered'))
+		.catch(err => console.error('Service Worker registration failed:', err));
+}
+</script>
+</body>
+</html>
